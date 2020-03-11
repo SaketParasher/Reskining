@@ -1,0 +1,393 @@
+        (function(){
+
+            /**
+            * Check if user is guest or logged in user
+            */
+        function isGuestUser() {
+                if (document.querySelector('#ups-headerWrap .ups-utilities_menu a').text === 'Log In') {
+                    return true;
+                }
+                return false;
+            }
+            
+            /**
+             *   Reskining Where view  
+             **/
+            function reskinWhereView(){
+
+                var style = document.createElement('style');
+                style.innerText = `
+
+                #reskined .padTopBottom{
+                    padding-top:10px;
+                    padding-bottom:10px;
+                }
+
+                #reskined .returnAddressHeader{
+                    display: flex;
+                    margin-bottom: 0px;
+                    padding: 0px 25px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    border-bottom: none;
+                    padding-bottom: 20px;
+                }
+
+                /******************************************    Go TO PREVIOUS VERSION    ************************************************/
+
+                #reskined .ups-text_atomic.ups-txt_input_height.ups-txt_absolute{
+                    right:23%;
+                }
+                #reskined .ups-text_atomic.ups-txt_input_height.ups-txt_absolute a{
+                    color:#00847D;
+                }
+
+                /******************************************    PROGRESS BAR BREADCRUMB    ************************************************/
+
+                #reskined .ups-application_wrapper .ups-progress_bar {
+                    background-color: transparent;
+                }
+                
+                @media screen and (min-width: 1200px){
+                    #reskined .ups-application_wrapper .ups-progress_bar_inner ol:before {
+                        border-left: 2px solid #00857D; 
+                        left: 23px;
+                    }  
+                }
+                
+                #reskined .ups-application_wrapper .ups-progress_bar_inner .ups-progress_number.ups-progress_current {
+                    padding: 7px 12px; 
+                    border-color: #00524A;
+                    background-color: #00857D;
+                }
+                
+                #reskined .ups-application_wrapper .ups-progress_bar_inner .ups-progress_number.ups-progress_current span {
+                    top: 0px;
+                    font-size: 15px;
+                    color:white
+                }
+
+                #reskined .ups-application_wrapper .ups-progress_bar_inner .ups-progress_number span {
+                    color:#00857D;
+                    top:0px;
+                }
+                
+                #reskined .ups-application_wrapper .ups-progress_bar_inner .ups-progress_number {
+                    padding: 3px 8px;
+                    border: 2px solid #00857D; 
+                    background-color: white; 
+                }
+                
+                #reskined .ups-application_wrapper .ups-progress_bar_inner .ups-progress_number.ups-progress_complete {
+                    padding: 3px 5px;
+                    background-color: #00857D; 
+                }
+
+                #reskined .ups-application_wrapper .ups-progress_bar_inner .ups-progress_number.ups-progress_current.ups-progress_complete {
+                    padding: 7px 12px;
+                }
+                #reskined .ups-application_wrapper .ups-progress_bar_inner .ups-progress_number.ups-progress_current.ups-progress_complete span{
+                    top: 0px;
+                    font-size: 15px;
+                    color:white
+                }
+
+                /******************************************    PRICE BREAKUP SLIDER    ************************************************/
+
+                #reskined .ups-balance_bar_container .ups-balance_bar{
+                    padding: 10px 60px 5px;
+                }
+                #reskined .ups-balance_bar_container .ups-balance_bar_expanded{
+                    padding-left:20px;
+                }
+                #reskined .ups-balance_bar_container .ups-balance_bar .ups-balance_bar_expand_btn{
+                    outline:none;
+                }
+                #reskined .ups-group.ups-app_inner .ups-txt_input_height{
+                    padding-left:4%;
+                }
+                #reskined .ups-group.ups-app_inner .ups-txt_input_height em{
+                    font-style:unset;
+                }
+
+                /******************************************   WHERE MAIN CONTENT SECTION  ************************************************/
+                
+                #reskined .ups-wrap .ups-app_inner section.ups-section{
+                    //background-color:#F5F1ED;
+                }
+                #reskined .ups-wrap .ups-app_inner section.ups-section:nth-child(2n+1) section.ups-section{
+                    padding:20px 25px;
+                }
+                #reskined .ups-wrap .ups-app_inner section.ups-section .alert.alert-primary{
+                    background:#E6E2DF;
+                    border:none;
+                    border-radius:0px;
+                }
+
+                #reskined .sectionSubHeading{
+                    font-family: Tahoma Regular;
+                    font-size: 18pt;
+                    color:#000000;
+                }
+                #reskined .whereTopRow{
+                    background-color:#F5F1ED;
+                    margin: 0px 0px 20px 0px;
+                    padding: 15px 10px;
+                }
+                #reskined .whereTopRow > .ups-section{
+                    margin-bottom:0px;
+                }
+                #reskined .whereTopRow > .ups-section h2.ups-section_heading{
+                    font-size:22px;
+                    border-bottom:none;
+                }
+                #reskined agent.ng-star-inserted > .ups-section{
+                    background-color:#F5F1ED;
+                }
+                #reskined .ups-group.ups-group_condensed{
+                    font-size:14px;
+                    font-family:Tahoma Regular;
+                    color:rgba(0,0,0,0.75);
+                }
+                #reskined .ups-application_wrapper .ups-section .ups-section-header{
+                    position:relative;
+                }
+                #reskined .ups-application_wrapper .ups-section .ups-section-header button.ups-link{
+                    color: #00847D;
+                    position: relative;
+                    top: 4px;
+                    right: 50%;
+                }
+                #reskined .ups-application_wrapper .ups-section .ups-section-header button.ups-link span.icon.ups-icon-edit{
+                    position:relative;
+                    top:3px;
+                    right:2px;
+                }
+
+                /********************************************   FORM FIELDS   ***********************************/
+                
+                #reskined .ups-form_group label{
+                    font-size: 10pt;
+                    font-family: Tahoma, Bold;
+                }
+
+                #reskined .ups-form_group.ups-form_required label{
+                    font-size: 10pt;
+                    font-family: Tahoma, Bold;
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: flex-end;
+                }
+
+                #reskined .ups-text_wrapper .ups-form_input{
+                    border-radius:5px;
+                }
+
+                #reskined .ups-dropdown_wrapper .ups-dropdown{
+                    border-radius:5px;
+                }
+
+                #reskined .ups-form_input::-webkit-input-placeholder{
+                    font-style:inherit;
+                }
+                #reskined .ups-form_input::-moz-placeholder {
+                    font-style:inherit;
+                }
+                #reskined .ups-form_input:-ms-input-placeholder {
+                    font-style:inherit;
+                }
+                #reskined .ups-form_input:-moz-placeholder { 
+                    font-style:inherit;
+                }
+
+                /********************************************   TOGGLE TO CHECKBOX    ***********************************/
+
+                #reskined label.ups-lever[for="destinationnbsAgentSaveNewSwitch"]{
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: flex-end;
+                }
+
+                #reskined label.ups-lever[for="destinationnbsAgentSaveNewSwitch"] > div{
+                    padding-left:25px;
+                }
+
+                #reskined label.ups-lever[for="destinationisResidential"] > div{
+                    padding-left:35px;
+                }
+
+                #reskined label.ups-lever[for="destinationnbsAgentSaveNewSwitch"] > div .ups-form_label.ups-lever_label{
+                    margin-bottom:0px;
+                }
+
+                #reskined label.ups-lever > span{
+                    display:none;
+                }
+                #reskined .ups-application_wrapper .ups-lever input, #reskined .ups-application_wrapper .ups-lever .ups-lever_checkbox{
+                    opacity:1;
+                }
+
+                #reskined .ups-application_wrapper label.ups-lever[for="destinationnbsAgentSaveNewSwitch"] input[type=checkbox] {
+                    position: relative;
+                    cursor: pointer;
+                    margin-top:0px;
+                }
+                #reskined .ups-application_wrapper label.ups-lever[for="destinationisResidential"] input[type=checkbox] {
+                    cursor: pointer;
+                    margin-top:0px;
+                }
+                #reskined .ups-application_wrapper .ups-lever input[type=checkbox]:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 25px;
+                    height: 23px;
+                    top: 0;
+                    left: 0;
+                    border: 1px solid #999999;
+                    border-radius: 5px;
+                    background-color: white;
+                }
+                #reskined .ups-application_wrapper .ups-lever input[type=checkbox]:checked:after {
+                    content: "";
+                    display: block;
+                    width: 7px;
+                    height: 14px;
+                    border: solid #00847D;
+                    border-width: 0 2px 2px 0;
+                    -webkit-transform: rotate(40deg);
+                    -ms-transform: rotate(40deg);
+                    transform: rotate(40deg);
+                    position: absolute;
+                    top: 3px;
+                    left: 9px;
+                }
+
+                #reskined label.ups-lever[for="originnbsAgentSaveEditsSwitch"] > div {
+                    padding-left:34px;
+                }
+                
+                #reskined label.ups-lever[for="originnbsAgentSaveEditsSwitch"] > input#originnbsAgentSaveEditsSwitch {
+                    top:0px;
+                    margin-top:0px;
+                }
+
+                #reskined label.ups-lever[for="originnbsAgentUseAsDefaultAddressSwitch"] > div {
+                    padding-left:34px;
+                }
+                
+                #reskined label.ups-lever[for="originnbsAgentUseAsDefaultAddressSwitch"] > input#originnbsAgentUseAsDefaultAddressSwitch {
+                    top:0px;
+                    margin-top:0px;
+                }
+
+                #reskined label.ups-lever[for="returnnbsAgentSaveNewSwitch"] > div {
+                    padding-left:34px;
+                }
+                
+                #reskined label.ups-lever[for="returnnbsAgentSaveNewSwitch"] > input#returnnbsAgentSaveNewSwitch {
+                    top:0px;
+                    margin-top:0px;
+                }
+
+                #reskined label.ups-lever[for="returnnbsAgentUseAsDefaultAddressSwitch"] > div {
+                    padding-left:34px;
+                }
+                
+                #reskined label.ups-lever[for="returnnbsAgentUseAsDefaultAddressSwitch"] > input#returnnbsAgentUseAsDefaultAddressSwitch {
+                    top:0px;
+                    margin-top:0px;
+                }
+
+                /********************************************   UPS CTA BUTTONS    ***********************************/
+
+                #reskined .ups-form_ctaGroup{
+                    position:relative;
+                }
+
+                #reskined .ups-form_ctaGroup span.button-spinner{
+                    position: absolute;
+                    right: 0px;
+                }
+
+                `;
+            document.body.setAttribute('id','reskined');
+            document.head.appendChild(style);
+
+            
+            // Logic to Resking Where View
+            function reskiningWhereView(){
+               // $($('.ups-form_wrap.ups-wrap.ups-application_wrapper.ups-app_nbs .ups-wrap .ups-app_inner .ups-section')[0]).attr('reskined','true');
+                if(!isGuestUser()){
+                    var loggedInUserTopAddressRow = $($('.ups-wrap_inner > .ups-app_inner .ups-section')[0]).children('.row');
+                    var accountAlertDropdowns = $('.ups-wrap .ups-app_inner section.ups-section .alert.alert-primary').find('shipper-account').children('.row').children('div')
+                    var whereFormSectionHeading = $('.ups-section .ups-section_heading.ups-centered_header');
+                    var newWhereFormSectionHeading = document.createElement('h3');
+                    var saveAsNewEntryEle = $('label.ups-lever[for="destinationnbsAgentSaveNewSwitch"]').closest('.row').children();
+                    var useDiffReturnAddressLabelLoggedIn = $('label.ups-lever[for="returnSwitch"]');
+                    newWhereFormSectionHeading.innerText = 'Ship To';
+                    newWhereFormSectionHeading.classList.add('sectionSubHeading');
+
+                    loggedInUserTopAddressRow.addClass('whereTopRow');
+                    // expanding where top row section to col-md-6
+                    loggedInUserTopAddressRow.children().each(function(){
+                        if($(this).hasClass('col-md-offset-2')){
+                        $(this).removeClass('col-md-offset-2');
+                        }
+                        if($(this).hasClass('col-md-5')){
+                        $(this).removeClass('col-md-5').addClass('col-md-6');
+                        }
+                    });
+                    if($('.ups-section .ups-section_heading.ups-centered_header').siblings('destination').find('.ups-section').children('h3.sectionSubHeading').length == 0){
+                        $('.ups-section .ups-section_heading.ups-centered_header').siblings('destination').find('.ups-section').prepend(newWhereFormSectionHeading);
+                    }
+                    
+                    whereFormSectionHeading.css('display','none');
+                    accountAlertDropdowns.each(function(index){
+                        $(this).removeClass('col-md-5').addClass('col-md-6');
+                    });
+                    saveAsNewEntryEle.each(function(index){
+                        $(this).removeClass('col-md-6').addClass('col-md-12').addClass('padTopBottom');
+                    });
+                    // use different return address checkbox 
+                    useDiffReturnAddressLabelLoggedIn.find('input#returnSwitch').css({'position':'static','cursor':'pointer'});
+                    useDiffReturnAddressLabelLoggedIn.closest('common-switch').removeClass('pull-right');
+                    useDiffReturnAddressLabelLoggedIn.parent().css('flex-basis','5%');
+                    useDiffReturnAddressLabelLoggedIn.closest('h2#returnAddressForm_label').addClass('returnAddressHeader');
+                    useDiffReturnAddressLabelLoggedIn.closest('div.ups-section-header').css('margin-bottom','0px');
+                    useDiffReturnAddressLabelLoggedIn.closest('div.ups-section').css({'background':'#F5F1ED','margin-bottom':'0px'});
+                    useDiffReturnAddressLabelLoggedIn.closest('section.ups-section').find('section.ups-section').css('margin-bottom','0px');
+                }else{
+                    // use different return address checkbox 
+                    console.warn('NOT LOGGED IN USER');
+                    var useDiffReturnAddressLabel = $('label.ups-lever[for="returnSwitch"]');
+                    useDiffReturnAddressLabel.find('input#returnSwitch').css({'position':'static','cursor':'pointer'});
+                    useDiffReturnAddressLabel.closest('common-switch').removeClass('pull-right');
+                    useDiffReturnAddressLabel.parent().css('flex-basis','5%');
+                    useDiffReturnAddressLabel.closest('h2#returnAddressForm_label').addClass('returnAddressHeader');
+                    useDiffReturnAddressLabel.closest('div.ups-section-header').css('margin-bottom','0px');
+                    useDiffReturnAddressLabel.closest('div.ups-section').css({'background':'#F5F1ED','margin-bottom':'0px'});
+                    useDiffReturnAddressLabel.closest('section.ups-section').find('section.ups-section').css('margin-bottom','0px');
+                }
+            }
+            reskiningWhereView();
+            
+            // UPS Section to observe for both Guest and LoggedIn User
+            var upsSectionToObserve =  $('.ups-form_wrap.ups-wrap.ups-application_wrapper.ups-app_nbs .ups-wrap .ups-app_inner')[0];
+            var upsSectionToObserveConfig = { 
+                attributes: true,
+                childList: true
+            };
+            // Adding Mutation Observer for Where View 
+            var upsSectionObserver = new MutationObserver(function(mutations,observe){
+                console.warn("Mutation Observer FIREDDD!!!!");
+                setTimeout(function(){
+                    reskiningWhereView();
+                },0);      
+            });
+            upsSectionObserver.observe(upsSectionToObserve,upsSectionToObserveConfig);
+            
+            }
+            reskinWhereView();
+
+        })()
